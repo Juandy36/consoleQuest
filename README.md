@@ -77,19 +77,44 @@ Al completar cada zona:
 ---
 
 ## ✨ Mecánica Única
-
-> *(Descrita en el código de tu grupo — este apartado debe detallar la mecánica exclusiva que implementaron, por ejemplo: cofres con recompensas aleatorias, sistema de armas intercambiables, etc.)*
-
-**Ejemplo de sección si implementaron cofres:**
-
-### 🎲 Cofres Misteriosos
-Al final de cada zona hay un cofre con contenido aleatorio:
-- 💰 Oro (cosmético, suma puntos)
-- 🧪 Poción extra
-- ⚡ Buff temporal de ataque (+5 durante el próximo combate)
-- 💀 Trampa — pierde 15 HP
-
+ 
+### 🔮 Comandos Secretos
+Durante cualquier turno de combate, el jugador puede escribir comandos especiales en lugar de elegir una acción normal. Estos comandos tienen efectos **aleatorios e impredecibles**, lo que añade un elemento de riesgo y decisión estratégica.
+ 
+Para activarlos, el jugador escribe el comando directamente cuando se le pide su acción:
+ 
 ---
+ 
+#### `!rezar`
+El jugador invoca a los dioses para que bendigan su arma. El resultado es **completamente aleatorio** — no hay garantía de recibir el mayor bonus:
+ 
+| Resultado | Efecto |
+|-----------|--------|
+| 33% de probabilidad | +15% al multiplicador de daño |
+| 33% de probabilidad | +20% al multiplicador de daño |
+| 33% de probabilidad | +30% al multiplicador de daño |
+ 
+> El bonus es permanente para el resto de la partida y se acumula si se usa varias veces.
+ 
+---
+ 
+#### `!heal`
+El jugador canaliza energía mágica inestable. Puede **curar o dañar** — nadie lo sabe hasta que ocurre:
+ 
+| Resultado | Efecto |
+|-----------|--------|
+| 50% de probabilidad | Cura entre el 1% y el 50% del HP máximo |
+| 50% de probabilidad | Quita entre el 1% y el 20% del HP máximo |
+ 
+> Usar `!heal` con poca vida es una apuesta arriesgada.
+ 
+---
+ 
+**Notas de diseño:**
+- Los comandos no consumen el turno de combate — el enemigo no contraataca cuando se usan.
+- Están disponibles en todas las zonas, incluyendo el combate contra el Dragon.
+- No hay límite de usos, pero el efecto aleatorio desalienta el spam.
+ 
 
 ## 📊 Puntuación Final
 
