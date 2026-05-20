@@ -236,4 +236,75 @@ def combat(player_name, player_hp, player_max_hp, player_attack, player_multipli
             total_kills, total_damage, total_potions_used, total_turns,
             enemy_died)
             
+    #-----------------------------------------------------------------------------------------
+    # CREACION DE PERSONAJE Y ENEMIGOS
+    #-----------------------------------------------------------------------------------------
+
+def create_character():
+    """
+    -Solicita nombre y clase al jugador.
+    -Asigna los stats en base a los que la profe nos dios x clase.
+    -Retorna todos los valores del personaje.
+    """
+    print("\n" + "=" * 30)
+    print("   CREACIÓN DE PERSONAJE")
+    print("=" * 30)
+ 
+    # Nombre (no puede estar vacío)
+    player_name = ""
+    while player_name == "":
+        player_name = input("  Ingresa tu nombre: ").strip()
+        if player_name == "":
+            print(" El nombre no puede estar vacío.")
+
+    # clase
+    print("\n  Elige tu clase:")
+    print("  [1] Guerrero  — HP: 120 | Ataque: 15 | Pociones: 3")
+    print("  [2] Mago     — HP:  70 | Ataque: 12 | Pociones: 2")
+    print("  [3] Rebelde    — HP:  90 | Ataque: 13 | Pociones: 2 | Críticos: Sí")
+
+    player_class = ""
+    while player_class not in ("1", "2", "3"):
+        player_class = input("  Tu clase:(1/2/3) ").strip()
+        if player_class not in ("1", "2", "3"):
+            print(" Opción inválida. Elige 1, 2 o 3.")
+
+
+    # Asignación de stats según la clase
+    if player_class == "1":
+        player_class      = "Guerrero"
+        player_hp         = 120
+        player_max_hp     = 120
+        player_attack     = 15
+        player_multiplier = 1.0
+        player_potions    = 3
+        player_crit       = False
+ 
+    elif player_class == "2":
+        player_class      = "Mago"
+        player_hp         = 70
+        player_max_hp     = 70
+        player_attack     = 12
+        player_multiplier = 1.8
+        player_potions    = 2
+        player_crit       = False
+ 
+    else:
+        player_class      = "Rebelde"
+        player_hp         = 90
+        player_max_hp     = 90
+        player_attack     = 13
+        player_multiplier = 1.3
+        player_potions    = 2
+        player_crit       = True
+ 
+    print(f"\n   ¡Bienvenido, {player_name} el {player_class}!")
+ 
+    return (player_name, player_class,
+            player_hp, player_max_hp,
+            player_attack, player_multiplier,
+            player_potions, player_crit)
+ 
+ 
+
  
